@@ -2,6 +2,7 @@ var urlify = function(str, length) {
   // have a pointer to check from start to end
   var strArr = str.split('');
   var pointer = 0;
+
   while (pointer < str.length) {
     if (strArr[pointer] === ' ') {
       // *** needs more work here, a little wierd
@@ -9,6 +10,7 @@ var urlify = function(str, length) {
       for (var i = str.length - 1; i > pointer + 3; i--) {
         strArr[i] = str[i - 2];
       }
+      
       strArr[pointer] = '%';
       strArr[pointer+1] = '2';
       strArr[pointer+2] = '0';
