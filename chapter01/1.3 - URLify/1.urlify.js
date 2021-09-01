@@ -2,7 +2,7 @@
 
 function urlify(str, length){
     
-    let strArr = str.split('');
+    let strArr = str.trim().split('');
     let spaceCount = 0;
 
     for(let word of strArr){
@@ -38,7 +38,7 @@ function urlify(str, length){
     
 }
 console.log(urlify('Mr John Smith', 13), 'Mr%20John%20Smith');
-
+console.log(urlify("Mr John Smith   ", 13));
 
 
 function urlify2(str, length){
@@ -77,14 +77,20 @@ console.log(urlify2('Mr John Smith', 13), 'Mr%20John%20Smith');
 
 
 
-function replaceUrlSpaces(str){
-    return str.replaceAll(' ', '%20');
-}
-console.log(replaceUrlSpaces("Sai Charan P"));
+// function replaceUrlSpaces(str){
+//     return str.replaceAll(' ', '%20');
+// }
+// console.log(replaceUrlSpaces("Sai Charan P"));
 
 
 function replaceUrlSpaces1(str){
     let strArr = str.trim().split('');
-    
+
+    for(let index in strArr){
+        if(strArr[index] === ' '){
+            strArr[index] = '%20';
+        }
+    }
+    return strArr.join('');
 }
 console.log(replaceUrlSpaces1("Sai Charan P"));
